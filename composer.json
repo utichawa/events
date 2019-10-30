@@ -1,0 +1,54 @@
+{
+    "name": "utichawa/events",
+    "description": "Module events for CMS medianet",
+    "keywords": [
+        "utichawa",
+        "events"
+    ],
+    "homepage": "https://github.com/utichawa/events",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mechiche Yassine",
+            "email": "mechicheyassine@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Utichawa\\Events\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Utichawa\\Events\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Utichawa\\Events\\EventsServiceProvider"
+            ],
+            "aliases": {
+                "Events": "Utichawa\\Events\\EventsFacade"
+            }
+        }
+    }
+}
