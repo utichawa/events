@@ -3,6 +3,7 @@
 namespace Utichawa\Events;
 
 use Illuminate\Support\ServiceProvider;
+use Utichawa\Events\Models\Event;
 
 class EventsServiceProvider extends ServiceProvider
 {
@@ -54,7 +55,7 @@ class EventsServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('events', function () {
-            return new Events;
+            return new Event();
         });
     }
 }
