@@ -3,7 +3,6 @@
 namespace Utichawa\Events;
 
 use Illuminate\Support\ServiceProvider;
-use Utichawa\Events\Models\Event;
 
 class EventsServiceProvider extends ServiceProvider
 {
@@ -21,14 +20,7 @@ class EventsServiceProvider extends ServiceProvider
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('events.php'),
-            ], 'config');
-
-            // Publishing the views.
-            $this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/events'),
-            ], 'views');
+           
 
             // Publishing assets.
             /*$this->publishes([
@@ -43,6 +35,16 @@ class EventsServiceProvider extends ServiceProvider
             // Registering package commands.
             // $this->commands([]);
         }
+        
+        // Publishing the views.
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor/events'),
+        ], 'views');
+
+        $this->publishes([
+            __DIR__.'/../config/config.php' => config_path('events.php'),
+        ], 'config');
+
     }
 
     /**
@@ -53,9 +55,5 @@ class EventsServiceProvider extends ServiceProvider
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/cms-events.php', 'events');
 
-        // Register the main class to use with the facade
-        $this->app->singleton('events', function () {
-            return new Event();
-        });
     }
 }

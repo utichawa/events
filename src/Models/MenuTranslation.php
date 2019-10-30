@@ -3,10 +3,11 @@
 namespace Utichawa\Events\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class MenuTranslation extends BaseModel
 {
-    use SoftDeletes;
+    use LogsActivity, SoftDeletes;
 
     protected static $logFillable = true;
 

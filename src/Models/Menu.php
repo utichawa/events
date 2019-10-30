@@ -6,10 +6,11 @@ use Utichawa\Events\Traits\UpdaterTrait;
 use Utichawa\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Iatstuti\Database\Support\CascadeSoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Menu extends BaseModel
 {
-    use SoftDeletes, Translatable, UpdaterTrait, CascadeSoftDeletes;
+    use LogsActivity, SoftDeletes, Translatable, UpdaterTrait, CascadeSoftDeletes;
 
     protected $cascadeDeletes = ['translations'];
 
