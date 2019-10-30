@@ -25,9 +25,9 @@ class EventsServiceProvider extends ServiceProvider
             ], 'config');
 
             // Publishing the views.
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/events'),
-            ], 'views');*/
+            ], 'views');
 
             // Publishing assets.
             /*$this->publishes([
@@ -50,7 +50,7 @@ class EventsServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'events');
+        $this->mergeConfigFrom(__DIR__.'/../config/cms-events.php', 'events');
 
         // Register the main class to use with the facade
         $this->app->singleton('events', function () {
