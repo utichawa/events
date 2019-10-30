@@ -9,6 +9,8 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Iatstuti\Database\Support\CascadeSoftDeletes;
+use App\Models\Cms\Menu;
+use App\Models\BaseModel;
 
 class Event extends BaseModel implements HasMedia
 {

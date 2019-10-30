@@ -3,6 +3,7 @@
 namespace Utichawa\Events\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\BaseModel;
 
 class EventCategoryTranslation extends BaseModel
 {

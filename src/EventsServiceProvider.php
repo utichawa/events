@@ -20,8 +20,6 @@ class EventsServiceProvider extends ServiceProvider
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         if ($this->app->runningInConsole()) {
-           
-
             // Publishing assets.
             /*$this->publishes([
                 __DIR__.'/../resources/assets' => public_path('vendor/events'),
@@ -35,16 +33,22 @@ class EventsServiceProvider extends ServiceProvider
             // Registering package commands.
             // $this->commands([]);
         }
-        
+
         // Publishing the views.
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/events'),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/events'),
         ], 'views');
 
+        // Publishing the config.
         $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('events.php'),
+            __DIR__ . '/../config/cms-events.php' => config_path('config/cms-events.php'),
         ], 'config');
 
+        // Publishing migrations 
+        $this->publishes([
+            __DIR__ . '/../database/migrations/create_event_categories_table.stub.php' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_event_categories_table.php'),
+            __DIR__ . '/../database/migrations/create_events_table.stub.php' => database_path('migrations/' . date('Y_m_d_His', time()) . 'create_events_table.php'),
+        ], 'migrations');
     }
 
     /**
@@ -53,7 +57,7 @@ class EventsServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/cms-events.php', 'events');
+        $this->mergeConfigFrom(__DIR__ . '/../config/cms-events.php', 'events');
 
     }
 }
