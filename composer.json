@@ -20,7 +20,7 @@
         "iatstuti/laravel-cascade-soft-deletes": "^1.5",
         "illuminate/support": "5.8.*",
         "spatie/laravel-medialibrary": "^7.0.0",
-        "utichawa/Translatable": "^1.0"
+        "utichawa/translatable": "^1.0"
     },
     "require-dev": {
         "orchestra/testbench": "3.8.*",
