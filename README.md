@@ -16,7 +16,7 @@ composer require utichawa/events
 ### After Installing
 You Should go to 'ModulesTableSeeder' file and add this code in the variable $data
 
-``` bash
+``` php
 [
     'name' => config('cms-events.module.name'),
     'reference' => config('cms-events.module.reference'),
@@ -40,10 +40,17 @@ You Should go to 'ModulesTableSeeder' file and add this code in the variable $da
 ],
 ```
 
-## Usage
-
+## Adding fake events
+You should add this line to the file DatabaseSeeder under the fucntion fakeData
 ``` php
-// Usage description here
+public function fakeData()
+    {
+        if (config('app.env') == 'local') {
+            //.....
+            $this->call(EventsTableSeeder::class);
+            //.....
+        }
+    }
 ```
 
 ## Credits
