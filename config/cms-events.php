@@ -2,6 +2,7 @@
 
 return [
     'pagination' => 10,
+    'route_namespace_controllers' => 'Utichawa\Events\Http\Controllers',
     'module' => [
         'name' => 'Event',
         'reference' => 'events',

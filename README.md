@@ -14,7 +14,9 @@ composer require utichawa/events
 ```
 
 ### After Installing
-You Should go to 'ModulesTableSeeder' file and add this code in the variable $data
+
+#### Add Module :
+Add this code in the variable $data in 'ModulesTableSeeder.php'
 
 ``` php
 [
@@ -40,8 +42,19 @@ You Should go to 'ModulesTableSeeder' file and add this code in the variable $da
 ],
 ```
 
+#### Add Routes
+Add this line to the config file 'packages.php'
+```php
+'events' => config('cms-events.route_namespace_controllers')
+```
+
 ## Adding fake events
 You should add this line to the file DatabaseSeeder under the fucntion fakeData
+
+But before that execute this command
+``` bash
+composer dump
+```
 ``` php
 public function fakeData()
     {

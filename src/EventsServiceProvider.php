@@ -25,36 +25,47 @@ class EventsServiceProvider extends ServiceProvider
             ], 'config');
 
             // Publishing migrations 
-            $this->publishes([
-                __DIR__ . '/../database/migrations/create_event_categories_table.stub.php' => database_path('migrations/cms/' . date('Y_m_d_His', time()) . '_create_event_categories_table.php'),
-                __DIR__ . '/../database/migrations/create_events_table.stub.php' => database_path('migrations/cms/' . date('Y_m_d_His', time()) . '_create_events_table.php'),
-            ], 'migrations');
+            if (!class_exists('CreateEventCategoriesTable')) {
+                $this->publishes([
+                    __DIR__ . '/../database/migrations/create_event_categories_table.stub.php' => database_path('migrations/cms/' . date('Y_m_d_His', time()) . '_create_event_categories_table.php'),
+                ], 'migrations');
+            }
+            if (!class_exists('CreateEventsTable')) {
+                $this->publishes([
+                    __DIR__ . '/../database/migrations/create_events_table.stub.php' => database_path('migrations/cms/' . date('Y_m_d_His', time()) . '_create_events_table.php'),
+                ], 'migrations');
+            }
 
             //Publishing Fake data
             $this->publishes([
                 __DIR__ . '/../database/factories' => database_path('factories/cms'),
                 __DIR__ . '/../database/seeds' => database_path('seeds/cms'),
             ], 'fake_data');
-            
+
             //Publishing Requests
             $this->publishes([
-                __DIR__.'/Http/Requests/EventCategoryRequest.php' => app_path('/Http/Requests/EventCategoryRequest.php'),
-                __DIR__.'/Http/Requests/EventRequest.php' => app_path('/Http/Requests/EventRequest.php'),
+                __DIR__ . '/Http/Requests/EventCategoryRequest.php' => app_path('/Http/Requests/EventCategoryRequest.php'),
+                __DIR__ . '/Http/Requests/EventRequest.php' => app_path('/Http/Requests/EventRequest.php'),
             ], 'requests');
-            
+
             //Publishing Controllers
             $this->publishes([
-                __DIR__.'/Http/Controllers/Back' => app_path('/Http/Controllers/Back'),
-                __DIR__.'/Http/Controllers/Front' => app_path('/Http/Controllers/Front'),
+                __DIR__ . '/Http/Controllers/Back' => app_path('/Http/Controllers/Back'),
+                __DIR__ . '/Http/Controllers/Front' => app_path('/Http/Controllers/Front'),
             ], 'controllers');
 
             //Publishing Models
             $this->publishes([
-                __DIR__.'/Models/Event.php' => app_path('/Models/Cms/Event.php'),
-                __DIR__.'/Models/EventTranslation.php' => app_path('/Models/Cms/EventTranslation.php'),
-                __DIR__.'/Models/EventCategory.php' => app_path('/Models/Cms/EventCategory.php'),
-                __DIR__.'/Models/EventCategoryTranslation.php' => app_path('/Models/Cms/EventCategoryTranslation.php'),
+                __DIR__ . '/Models/Event.php' => app_path('/Models/Cms/Event.php'),
+                __DIR__ . '/Models/EventTranslation.php' => app_path('/Models/Cms/EventTranslation.php'),
+                __DIR__ . '/Models/EventCategory.php' => app_path('/Models/Cms/EventCategory.php'),
+                __DIR__ . '/Models/EventCategoryTranslation.php' => app_path('/Models/Cms/EventCategoryTranslation.php'),
             ], 'models');
+
+            //Publishing Routes
+            $this->publishes([
+                __DIR__ . '/../routes' => app_path('/../routes'),
+            ], 'routes');
         }
     }
 
