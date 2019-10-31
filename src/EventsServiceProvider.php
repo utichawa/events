@@ -15,7 +15,8 @@ class EventsServiceProvider extends ServiceProvider
 
             // Publishing the views.
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/events'),
+                __DIR__ . '/../resources/views/back' => resource_path('views/back'),
+                __DIR__ . '/../resources/views/front' => resource_path('views/front'),
             ], 'views');
 
             // Publishing the config.
@@ -37,17 +38,16 @@ class EventsServiceProvider extends ServiceProvider
             
             //Publishing Controllers
             $this->publishes([
-                __DIR__.'/Http/Controllers/Back/EventCategoriesController.php' => app_path('/Http/Controllers/Back/EventCategoriesController.php'),
-                __DIR__.'/Http/Controllers/Back/EventsController.php' => app_path('/Http/Controllers/Back/EventsController.php'),
-                __DIR__.'/Http/Controllers/Front/EventsController.php' => app_path('/Http/Controllers/Front/EventsController.php'),
+                __DIR__.'/Http/Controllers/Back' => app_path('/Http/Controllers/Back'),
+                __DIR__.'/Http/Controllers/Front' => app_path('/Http/Controllers/Front'),
             ], 'controllers');
 
             //Publishing Models
             $this->publishes([
-                __DIR__.'/Models/Event.php' => app_path('/Models/Event.php'),
-                __DIR__.'/Models/EventTranslation.php' => app_path('/Models/EventTranslation.php'),
-                __DIR__.'/Models/EventCategory.php' => app_path('/Models/EventCategory.php'),
-                __DIR__.'/Models/EventCategoryTranslation.php' => app_path('/Models/EventCategoryTranslation.php'),
+                __DIR__.'/Models/Event.php' => app_path('/Models/Cms/Event.php'),
+                __DIR__.'/Models/EventTranslation.php' => app_path('/Models/Cms/EventTranslation.php'),
+                __DIR__.'/Models/EventCategory.php' => app_path('/Models/Cms/EventCategory.php'),
+                __DIR__.'/Models/EventCategoryTranslation.php' => app_path('/Models/Cms/EventCategoryTranslation.php'),
             ], 'models');
             
             

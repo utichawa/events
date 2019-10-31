@@ -1,11 +1,9 @@
-# Very short description of the package
+# Module Events for Cms MEDIANET
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/utichawa/events.svg?style=flat-square)](https://packagist.org/packages/utichawa/events)
-[![Build Status](https://img.shields.io/travis/utichawa/events/master.svg?style=flat-square)](https://travis-ci.org/utichawa/events)
-[![Quality Score](https://img.shields.io/scrutinizer/g/utichawa/events.svg?style=flat-square)](https://scrutinizer-ci.com/g/utichawa/events)
 [![Total Downloads](https://img.shields.io/packagist/dt/utichawa/events.svg?style=flat-square)](https://packagist.org/packages/utichawa/events)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+Module events that can be added to any project that has CMS MEDIANET LARAVEL
 
 ## Installation
 
@@ -15,34 +13,43 @@ You can install the package via composer:
 composer require utichawa/events
 ```
 
+### After Installing
+You Should go to 'ModulesTableSeeder' file and add this code in the variable $data
+
+``` bash
+[
+    'name' => config('cms-events.module.name'),
+    'reference' => config('cms-events.module.reference'),
+    'main_model' => config('cms-events.module.main_model'),
+    'widget_orderable_columns' => config('cms-events.module.widget_orderable_columns'),
+    'is_active' => config('cms-events.module.is_active'),
+    'is_menu_module' => config('cms-events.module.is_menu_module'),
+    'order' => config('cms-events.module.order'),
+    'icon' => config('cms-events.module.icon'),
+    'backend_route' => config('cms-events.module.backend_route'),
+    'backend_controller' => config('cms-events.module.backend_controller'),
+    'backend_action' => config('cms-events.module.backend_action'),
+    'except_backend_actions' => config('cms-events.module.except_backend_actions'),
+    'only_backend_actions' => config('cms-events.module.only_backend_actions'),
+    'frontend_route' => config('cms-events.module.frontend_route'),
+    'front_namespace' => config('cms-events.module.front_namespace'),
+    'front_controller' => config('cms-events.module.front_controller'),
+    'frontend_action' => config('cms-events.module.frontend_action'),
+    'is_on_backend_sidebar' => config('cms-events.module.is_on_backend_sidebar'),
+    'parent_reference' => config('cms-events.module.parent_reference'),
+],
+```
+
 ## Usage
 
 ``` php
 // Usage description here
 ```
 
-### Testing
-
-``` bash
-composer test
-```
-
-### Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-### Security
-
-If you discover any security related issues, please email mechicheyassine@gmail.com instead of using the issue tracker.
-
 ## Credits
 
 - [Mechiche Yassine](https://github.com/utichawa)
-- [All Contributors](../../contributors)
+- [Lamia Zouaghi](https://github.com/lamiazouaghi)
 
 ## License
 
