@@ -29,6 +29,12 @@ class EventsServiceProvider extends ServiceProvider
                 __DIR__ . '/../database/migrations/create_event_categories_table.stub.php' => database_path('migrations/cms/' . date('Y_m_d_His', time()) . '_create_event_categories_table.php'),
                 __DIR__ . '/../database/migrations/create_events_table.stub.php' => database_path('migrations/cms/' . date('Y_m_d_His', time()) . '_create_events_table.php'),
             ], 'migrations');
+
+            //Publishing Fake data
+            $this->publishes([
+                __DIR__ . '/../database/factories' => database_path('factories/cms'),
+                __DIR__ . '/../database/seeds' => database_path('seeds/cms'),
+            ], 'fake_data');
             
             //Publishing Requests
             $this->publishes([
@@ -49,8 +55,6 @@ class EventsServiceProvider extends ServiceProvider
                 __DIR__.'/Models/EventCategory.php' => app_path('/Models/Cms/EventCategory.php'),
                 __DIR__.'/Models/EventCategoryTranslation.php' => app_path('/Models/Cms/EventCategoryTranslation.php'),
             ], 'models');
-            
-            
         }
     }
 
