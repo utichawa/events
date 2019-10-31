@@ -2,8 +2,8 @@
 
 namespace Utichawa\Events\Http\Requests;
 
-use Utichawa\Events\Models\EventTranslation;
 use Illuminate\Foundation\Http\FormRequest;
+use Utichawa\Events\Models\EventTranslation;
 
 class EventRequest extends FormRequest
 {

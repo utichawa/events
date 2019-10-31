@@ -2,11 +2,11 @@
 
 namespace Utichawa\Events\Http\Controllers\Back;
 
-use Utichawa\Events\Models\Event;
 use Illuminate\Http\Request;
+use Utichawa\Events\Models\Event;
 use Utichawa\Events\Models\EventCategory;
 use Utichawa\Events\Http\Requests\EventRequest;
-use Utichawa\Events\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 class EventsController extends Controller
 {

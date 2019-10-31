@@ -4,8 +4,8 @@ namespace Utichawa\Events\Http\Controllers\Back;
 
 use Illuminate\Http\Request;
 use Utichawa\Events\Models\EventCategory;
-use Utichawa\Events\Http\Controllers\Controller;
 use Utichawa\Events\Http\Requests\EventCategoryRequest;
+use App\Http\Controllers\Controller;
 
 class EventCategoriesController extends Controller
 {

@@ -2,10 +2,10 @@
 
 namespace Utichawa\Events\Models;
 
-use Utichawa\Events\Traits\UpdaterTrait;
 use Utichawa\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Iatstuti\Database\Support\CascadeSoftDeletes;
+use App\Models\Traits\UpdaterTrait;
 use App\Models\Cms\Menu;
 use App\Models\BaseModel;
 

@@ -5,6 +5,7 @@ namespace Utichawa\Events\Http\Controllers\Front;
 use Utichawa\Events\Models\Event;
 use Illuminate\Http\Request;
 use Utichawa\Events\Models\EventCategory;
+use App\Http\Controllers\Front\CmsFrontController;
 
 class EventsController extends CmsFrontController
 {
