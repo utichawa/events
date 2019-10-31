@@ -12,8 +12,23 @@ You can install the package via composer:
 ```bash
 composer require utichawa/events
 ```
+#### Publish files
+Publishing all files
+```bash
+php artisan vendor:publish --provider="Utichawa\Events\EventsServiceProvider"
+```
+Or you can also add tags to publish certain files
+```bash
+Views :  --tag="views"
+Config : --tag="config"
+Migrations : --tag="migrations"
+Fake Data : --tag="fake_data"
+Requests : --tag="requests"
+Controllers : --tag="controllers"
+Models : --tag="models"
+Routes : --tag="routes"
+```
 
-### After Installing
 
 #### Add Module :
 
@@ -27,22 +42,10 @@ Add this line to the config file 'packages.php'
 'events' => config('cms-events.route_namespace_controllers')
 ```
 
-## Adding fake events
-You should add this line to the file DatabaseSeeder under the fucntion fakeData
+#### Adding fake data
 
-But before that execute this command
 ``` bash
-composer dump
-```
-``` php
-public function fakeData()
-    {
-        if (config('app.env') == 'local') {
-            //.....
-            $this->call(EventsTableSeeder::class);
-            //.....
-        }
-    }
+php artisan db:seed --class=EventsTableSeeder
 ```
 
 ## Credits
