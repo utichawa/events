@@ -28,10 +28,16 @@ Controllers : --tag="controllers"
 Models : --tag="models"
 Routes : --tag="routes"
 ```
-
+Notice : Run this before you continue
+```bash
+composer dump
+```
+#### Run migrations
+```bash
+php artisan migrate
+```
 
 #### Add Module :
-
 ``` bash
 php artisan db:seed --class=ModuleEventTableSeeder
 ```
@@ -42,7 +48,7 @@ Add this line to the config file 'packages.php'
 'events' => config('cms-events.route_namespace_controllers')
 ```
 
-#### Adding fake data
+#### Adding fake data (Menu to Main menu + Dummy events and categories)
 
 ``` bash
 php artisan db:seed --class=EventsTableSeeder
